@@ -4,9 +4,6 @@ encrypt:
 decrypt:
 	ansible-vault decrypt group_vars/*/vault.yml
 
-setup:
-	ansible-playbook setup.yml
-
 deploy:
 	ansible-playbook playbook.yml
 

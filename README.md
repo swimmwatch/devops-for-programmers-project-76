@@ -10,11 +10,7 @@ Link: [http://my-first-domain.ru/](http://my-first-domain.ru/)
    ```shell
    make install
    ```
-3. Init servers:
-   ```shell
-   make setup
-   ```
-4. Deploy application:
+3. Deploy application:
    ```shell
    make deploy
    ```

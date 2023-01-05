@@ -1,6 +1,17 @@
 - hosts: all
-  gather_facts: no
+  become: yes
+  roles:
+    - { role: datadog.datadog, become: yes }
   tasks:
+    - name: Install Docker
+      include_tasks:
+        file: ./roles/tasks/install_docker.yml
+
+    - name: Create .env file
+      template:
+        src: .env.j2
+        dest: /.env
+
     - name: Run Redmin
       become: yes
       docker_container:
