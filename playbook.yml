@@ -1,0 +1,13 @@
+- hosts: all
+  gather_facts: no
+  tasks:
+    - name: Run Redmin
+      become: yes
+      docker_container:
+        image: redmine:5.0.4-alpine
+        name: redmine
+        state: started
+        auto_remove: true
+        env_file: /.env
+        ports:
+          - "80:3000"
