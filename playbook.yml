@@ -1,20 +1,20 @@
 - hosts: webservers
-  become: yes
+  become: true
   roles:
-    - { role: datadog.datadog, become: yes }
+    - { role: datadog.datadog, become: true }
   tasks:
     - name: Install Docker
-      include_tasks:
+      ansible.builtin.include_tasks:
         file: ./roles/tasks/install_docker.yml
 
     - name: Create .env file
-      template:
+      ansible.builtin.template:
         src: .env.j2
         dest: /.env
 
     - name: Run Redmin
       become: yes
-      docker_container:
+      community.docker.docker_container:
         image: redmine:5.0.4-alpine
         name: redmine
         state: started
