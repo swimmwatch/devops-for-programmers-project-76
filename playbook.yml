@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: webservers
   become: yes
   roles:
     - { role: datadog.datadog, become: yes }
