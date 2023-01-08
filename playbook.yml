@@ -13,7 +13,7 @@
         dest: /.env
 
     - name: Run Redmin
-      become: yes
+      become: true
       community.docker.docker_container:
         image: redmine:5.0.4-alpine
         name: redmine
